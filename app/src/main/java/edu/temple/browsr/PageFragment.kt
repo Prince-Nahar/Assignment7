@@ -1,5 +1,6 @@
 package edu.temple.browsr
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ class PageFragment : Fragment() {
 
     private lateinit var webView: WebView
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,8 +23,6 @@ class PageFragment : Fragment() {
 
         webView.settings.javaScriptEnabled = true
         webView.webViewClient = WebViewClient()
-
-        arguments?.getString("url")?.let { webView.loadUrl(it) }
 
         return view
     }
